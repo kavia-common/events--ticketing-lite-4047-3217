@@ -37,32 +37,32 @@ export default function EventsPage() {
       {error && <div className="text-red-700">Failed to load events.</div>}
 
       <div className="overflow-x-auto">
-        <table className="min-w-full border text-sm">
-          <thead className="bg-gray-50">
+        <table className="table text-sm">
+          <thead>
             <tr>
-              <th className="text-left p-2 border">Title</th>
-              <th className="text-left p-2 border">When</th>
-              <th className="text-left p-2 border">Venue</th>
-              <th className="text-left p-2 border">Capacity</th>
-              <th className="text-left p-2 border">Actions</th>
+              <th>Title</th>
+              <th>When</th>
+              <th>Venue</th>
+              <th>Capacity</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {(data || []).map((e) => (
-              <tr key={e.id} className="odd:bg-white even:bg-gray-50">
-                <td className="p-2 border">
-                  <Link className="underline" href={`/events/${e.id}`}>
+              <tr key={e.id}>
+                <td>
+                  <Link className="underline underline-offset-2" href={`/events/${e.id}`}>
                     {e.title}
                   </Link>
                 </td>
-                <td className="p-2 border">
+                <td>
                   {new Date(e.startsAt).toLocaleString()} –{" "}
                   {new Date(e.endsAt).toLocaleString()} ({e.timezone})
                 </td>
-                <td className="p-2 border">{e.venue}</td>
-                <td className="p-2 border">{e.capacity}</td>
-                <td className="p-2 border">
-                  <div className="flex gap-2">
+                <td>{e.venue}</td>
+                <td>{e.capacity}</td>
+                <td>
+                  <div className="flex flex-wrap gap-2">
                     <Link href={`/events/${e.id}/edit`}>
                       <Button variant="secondary">Edit</Button>
                     </Link>
@@ -75,7 +75,7 @@ export default function EventsPage() {
             ))}
             {(!data || data.length === 0) && (
               <tr>
-                <td className="p-2 border text-gray-600" colSpan={5}>
+                <td className="text-gray-600" colSpan={5}>
                   No events yet. Create one to get started.
                 </td>
               </tr>

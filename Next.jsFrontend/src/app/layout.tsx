@@ -14,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-white text-black">
+      <body className="min-h-screen bg-[rgb(var(--color-surface))] text-black">
         <Nav />
-        <main className="max-w-5xl mx-auto px-4 py-6">{children}</main>
+        <main className="app-container">{children}</main>
       </body>
     </html>
   );

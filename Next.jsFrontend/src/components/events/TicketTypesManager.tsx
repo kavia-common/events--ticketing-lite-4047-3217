@@ -137,47 +137,47 @@ export default function TicketTypesManager({ eventId }: { eventId: Id }) {
         </Alert>
       )}
       <div className="overflow-x-auto">
-        <table className="min-w-full border text-sm">
-          <thead className="bg-gray-50">
+        <table className="table text-sm">
+          <thead>
             <tr>
-              <th className="text-left p-2 border">Name</th>
-              <th className="text-left p-2 border">Price</th>
-              <th className="text-left p-2 border">Quantity</th>
-              <th className="text-left p-2 border">Issued</th>
-              <th className="text-left p-2 border">Actions</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Issued</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {(types || []).map((t) => (
-              <tr key={t.id} className="odd:bg-white even:bg-gray-50">
-                <td className="p-2 border">{t.name}</td>
-                <td className="p-2 border">
+              <tr key={t.id}>
+                <td>{t.name}</td>
+                <td>
                   <input
                     type="number"
                     min={0}
                     step={0.01}
                     defaultValue={t.price}
-                    className="w-24 border rounded px-2 py-1"
+                    className="w-28"
                     aria-label={`Price for ${t.name}`}
                     onBlur={(e) =>
                       onUpdate(t, { price: Number(e.currentTarget.value) })
                     }
                   />
                 </td>
-                <td className="p-2 border">
+                <td>
                   <input
                     type="number"
                     min={1}
                     defaultValue={t.quantity}
-                    className="w-24 border rounded px-2 py-1"
+                    className="w-24"
                     aria-label={`Quantity for ${t.name}`}
                     onBlur={(e) =>
                       onUpdate(t, { quantity: Number(e.currentTarget.value) })
                     }
                   />
                 </td>
-                <td className="p-2 border">{t.issued ?? 0}</td>
-                <td className="p-2 border">
+                <td>{t.issued ?? 0}</td>
+                <td>
                   <Button
                     type="button"
                     variant="danger"
@@ -191,7 +191,7 @@ export default function TicketTypesManager({ eventId }: { eventId: Id }) {
             ))}
             {(!types || types.length === 0) && (
               <tr>
-                <td className="p-2 border text-gray-500" colSpan={5}>
+                <td className="text-gray-500" colSpan={5}>
                   No ticket types yet.
                 </td>
               </tr>

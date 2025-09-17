@@ -74,7 +74,6 @@ export default function Scanner() {
           </label>
           <input
             id="device"
-            className="border rounded px-3 py-2"
             value={deviceId}
             onChange={(e) => setDeviceId(e.target.value)}
           />
@@ -85,7 +84,6 @@ export default function Scanner() {
           </label>
           <input
             id="payload"
-            className="border rounded px-3 py-2"
             value={payload}
             onChange={(e) => setPayload(e.target.value)}
             placeholder="Paste scanned QR value or ticketId"

@@ -123,43 +123,42 @@ export default function TicketGenerationPanel({ eventId }: { eventId: Id }) {
         <div className="space-y-2">
           <h4 className="font-medium">Attendees</h4>
           <div className="overflow-x-auto">
-            <table className="min-w-full border text-sm">
-              <thead className="bg-gray-50">
+            <table className="table text-sm">
+              <thead>
                 <tr>
-                  <th className="text-left p-2 border">Name</th>
-                  <th className="text-left p-2 border">Email</th>
-                  <th className="text-left p-2 border">Ticket Type</th>
-                  <th className="text-left p-2 border">Actions</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Ticket Type</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {attendees.map((row, i) => (
-                  <tr key={i} className="odd:bg-white even:bg-gray-50">
-                    <td className="p-2 border">
+                  <tr key={i}>
+                    <td>
                       <input
                         aria-label={`Attendee ${i + 1} name`}
                         value={row.name}
                         onChange={(e) => updateRow(i, { name: e.target.value })}
-                        className="border rounded px-2 py-1 w-44"
+                        className="w-44"
                       />
                     </td>
-                    <td className="p-2 border">
+                    <td>
                       <input
                         aria-label={`Attendee ${i + 1} email`}
                         type="email"
                         value={row.email}
                         onChange={(e) => updateRow(i, { email: e.target.value })}
-                        className="border rounded px-2 py-1 w-60"
+                        className="w-60"
                       />
                     </td>
-                    <td className="p-2 border">
+                    <td>
                       <select
                         aria-label={`Attendee ${i + 1} ticket type`}
                         value={row.ticketTypeId || ""}
                         onChange={(e) =>
                           updateRow(i, { ticketTypeId: e.target.value as unknown as Id })
                         }
-                        className="border rounded px-2 py-1"
                       >
                         <option value="">Select type</option>
                         {(types || []).map((t) => (
@@ -169,7 +168,7 @@ export default function TicketGenerationPanel({ eventId }: { eventId: Id }) {
                         ))}
                       </select>
                     </td>
-                    <td className="p-2 border">
+                    <td>
                       <Button
                         type="button"
                         variant="ghost"
@@ -182,7 +181,7 @@ export default function TicketGenerationPanel({ eventId }: { eventId: Id }) {
                   </tr>
                 ))}
                 <tr>
-                  <td className="p-2 border" colSpan={4}>
+                  <td colSpan={4}>
                     <Button type="button" variant="secondary" onClick={addRow}>
                       Add Row
                     </Button>
